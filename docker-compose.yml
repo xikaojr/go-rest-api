@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    image: go-rest-api:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - gorm_pgsql
+    environment:
+      - GIN_MODE=release
+
+  gorm_pgsql:
+    image: postgres:13
+    container_name: gorm_pgsql
+    working_dir: /data/pgsql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USERNAME: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - pgsql_data:/var/lib/postgresql/data
+    command: postgres -c datestyle=ISO,DMY
+
+volumes:
+  pgsql_data:
+    name: postgres-volume
+    external: true
