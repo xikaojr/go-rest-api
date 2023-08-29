@@ -23,6 +23,7 @@ Ele suporta vários bancos de dados, incluindo MySQL, PostgreSQL e SQLite, e for
 6. export GOPATH=$HOME/go
 7. export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 8. source ~/.profile
+9. go version
 ```
 
 
@@ -116,3 +117,7 @@ Inicie o servidor
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `string` | **Obrigatório**. O ID do item que você quer deletar |
+
+## Referência
+
+ - [Gin Gonic](https://gin-gonic.com/docs/)
